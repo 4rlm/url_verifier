@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Adam Booth"]
   spec.email         = ["4rlm@protonmail.ch"]
 
-  spec.summary       = %q{Reserving Namespace for Gem in Development.}
-  spec.description   = %q{Reserving Namespace for Gem in Development. - Coming Soon.}
+  spec.summary       = %q{Beta Version - Verify url validity and follow redirects. Note: Reserving Namespace for Gem in Development.}
+  spec.description   = %q{Beta Version - Verify url validity and follow redirects. Note: Reserving Namespace for Gem in Development. - Coming Soon.}
   spec.homepage      = 'https://github.com/4rlm/url_verifier'
   spec.license       = "MIT"
 

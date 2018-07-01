@@ -1,4 +1,3 @@
-require 'curler'
 
 module UrlVerifier
   class RunCurler

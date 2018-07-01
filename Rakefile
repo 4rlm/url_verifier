@@ -25,6 +25,8 @@ end
 
 
 def run_verify_urls
+  binding.pry
+  
   urls = %w[
     austinchevrolet.not.real
     smith_acura.com/staff
@@ -55,10 +57,10 @@ def run_verify_urls
   # }
 
   binding.pry
-  ver_obj = UrlVerifier::RunCurler.new
+  # ver_obj = UrlVerifier::RunCurler.new
   binding.pry
 
-  curler_hashes = ver_obj.verify_urls(urls)
+  # curler_hashes = ver_obj.verify_urls(urls)
   binding.pry
 
   # ver_obj = UrlVerifier::Verify.new(args)

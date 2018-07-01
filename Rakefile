@@ -1,5 +1,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
+require 'url_verifier'
+
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -14,6 +16,7 @@ task :console do
   require "active_support/all"
   ARGV.clear
 
+  binding.pry
   verified_urls = run_verify_urls
   binding.pry
 
@@ -51,6 +54,7 @@ def run_verify_urls
   #   cut_off: 10.days.ago
   # }
 
+  binding.pry
   ver_obj = UrlVerifier::RunCurler.new
   binding.pry
 

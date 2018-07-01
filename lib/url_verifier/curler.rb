@@ -1,6 +1,6 @@
 # require 'check_int'
-require 'timeout'
-require 'net/ping'
+# require 'timeout'
+# require 'net/ping'
 # gem 'net-ping', '~> 1.7', '>= 1.7.8'
 # gem 'curb', '~> 0.9.3'
 
@@ -9,7 +9,7 @@ module UrlVerifier
   class Curler
 
     def initialize
-      @web_formatter = CRMFormatter::Web.new
+      # @web_formatter = CRMFormatter::Web.new
     end
 
 

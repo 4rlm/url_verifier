@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Adam Booth"]
   spec.email         = ["4rlm@protonmail.ch"]
 
-  spec.summary       = %q{Beta Version - Verify url validity and follow redirects. Note: Reserving Namespace for Gem in Development.}
-  spec.description   = %q{Beta Version - Verify url validity and follow redirects. Note: Reserving Namespace for Gem in Development. - Coming Soon.}
+  spec.summary       = %q{Follows URL redirects to retrieve final address and status}
+  spec.description   = %q{Follows URL redirects to retrieve final address and status.}
   spec.homepage      = 'https://github.com/4rlm/url_verifier'
   spec.license       = "MIT"
 
@@ -36,18 +36,43 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.required_ruby_version = '~> 2.5.1'
-  spec.add_dependency 'activesupport', '~> 5.2', '>= 5.2.0'
+  spec.add_dependency 'activesupport', '~> 5.2'
+  spec.add_dependency 'utf8_sanitizer', '~> 2.16'
+  spec.add_dependency 'crm_formatter', '~> 2.61'
 
-  spec.add_dependency "utf8_sanitizer", "~> 2.0"
-  spec.add_dependency "crm_formatter", "~> 2.4"
+  spec.add_dependency 'net-ping', '~> 1.7', '>= 1.7.8'
+  spec.add_dependency 'curb', '~> 0.9.3'
 
+  # spec.add_dependency "activesupport-inflector", ['~> 0.1.0']
   spec.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.2'
-  spec.add_development_dependency 'byebug', '~> 10.0', '>= 10.0.2'
-  spec.add_development_dependency 'class_indexer', '~> 0.3.0'
-  spec.add_development_dependency 'irbtools', '~> 2.2', '>= 2.2.1'
   spec.add_development_dependency 'pry', '~> 0.11.3'
   spec.add_development_dependency 'rake', '~> 12.3', '>= 12.3.1'
   spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rubocop', '~> 0.56.0'
-  spec.add_development_dependency 'ruby-beautify', '~> 0.97.4'
+  # spec.add_development_dependency 'byebug', '~> 10.0', '>= 10.0.2'
+  # spec.add_development_dependency 'class_indexer', '~> 0.3.0'
+  # spec.add_development_dependency 'irbtools', '~> 2.2', '>= 2.2.1'
+  # spec.add_development_dependency 'rubocop', '~> 0.56.0'
+  # spec.add_development_dependency 'ruby-beautify', '~> 0.97.4'
+  # spec.add_runtime_dependency 'library', '~> 2.2'
+  # spec.add_dependency 'activerecord', '>= 3.0'
+  # spec.add_dependency 'actionpack', '>= 3.0'
+  # spec.add_dependency 'polyamorous', '~> 1.3.2'
+  # spec.add_development_dependency 'machinist', '~> 1.0.6'
+  # spec.add_development_dependency 'faker', '~> 0.9.5'
+  # spec.add_development_dependency 'sqlite3', '~> 1.3.3'
+  # spec.add_development_dependency 'pg', '~> 0.21'
+  # spec.add_development_dependency 'mysql2', '0.3.20'
+
+  # spec.requirements << 'libmagick, v6.0'
+  # spec.requirements << 'A good graphics card'
+  # # This gem will work with 1.8.6 or greater...
+  # spec.required_ruby_version = '>= 1.8.6'
+  #
+  # # Only with ruby 2.0.x
+  # spec.required_ruby_version = '~> 2.0'
+  #
+  # # Only with ruby between 2.2.0 and 2.2.2
+  # spec.required_ruby_version = ['>= 2.2.0', '< 2.2.3']
+
+
 end

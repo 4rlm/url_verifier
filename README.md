@@ -78,7 +78,7 @@ Notice the URLs in the input array above were NOT uniformly formatted.  UrlVerif
 
 `:verified_url` is the final verified URL.  `:url_redirected` indicates that the verified URL is different than `:url_f`.  
 
-If `url_sts: 'Invalid'`, `:wx_date` will be timestamped, which helps keep track of when it became invalid, incase you are running period database URL verifications and want to include these details in your reports.
+If `url_sts: 'Invalid'`, `:wx_date` will be timestamped, which helps keep track of when it became invalid, incase you are running periodic database URL verifications and want to include these details in your reports.
 
 `:response_code` in the 200's is ideal.  If it has recently been forwarded it will be in the 300's, and 400's indicates an issue with the URL domain or server.  Some 400's could be run later when they resolve their issues, so don't always give up on them.  
 

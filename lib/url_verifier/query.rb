@@ -54,18 +54,18 @@ module UrlVerifier
   #   db_timeout == 0 ? timeout = @dj_refresh_interval : timeout = (db_timeout * 3)
   #
   #   begin
-  #     formatted_url = @formatter.format_url(web_url)
-  #     if !formatted_url.present?
+  #     url_f = @formatter.format_url(web_url)
+  #     if !url_f.present?
   #         web.update!(response_code: nil, url_sts: 'Invalid', url_date: Time.now, wx_date: Time.now, timeout: timeout)
-  #     elsif formatted_url != web_url
-  #       fwd_web_obj = Web.find_by(url: formatted_url)
+  #     elsif url_f != web_url
+  #       fwd_web_obj = Web.find_by(url: url_f)
   #       AssocWeb.transfer_web_associations(web, fwd_web_obj) if fwd_web_obj&.url.present?
   #     end
   #
   #     ####### CURL-BEGINS - FORMATTED URLS ONLY!! #######
   #     #Call: VerUrl.new.start_ver_url
-  #     if formatted_url.present?
-  #       curl_hsh = start_curl(formatted_url, timeout)
+  #     if url_f.present?
+  #       curl_hsh = start_curl(url_f, timeout)
   #       curl_err = curl_hsh[:curl_err]
   #       if !curl_err.present?
   #         update_db(web, curl_hsh)

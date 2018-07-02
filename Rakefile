@@ -16,34 +16,15 @@ task :console do
   require "active_support/all"
   ARGV.clear
 
-  binding.pry
   verified_urls = run_verify_urls
-  binding.pry
 
   IRB.start
 end
 
 
 def run_verify_urls
-  binding.pry
-  
-  urls = %w[
-    austinchevrolet.not.real
-    smith_acura.com/staff
-    abcrepair.ca
-    hertzrentals.com/review
-    londonhyundai.uk/fleet
-    http://www.townbuick.net/staff
-    http://youtube.com/download
-    www.madridinfiniti.es/collision
-    www.mitsubishideals.sofake
-    www.dallassubaru.com.sofake
-    www.quickeats.net/contact_us
-    www.school.edu/teachers
-    www.www.nissancars/inventory
-    www.www.toyotatown.net/staff/management
-    www.www.yellowpages.com/business
-  ]
+
+  urls = %w[minooka.subaru.com texarkana.mercedesdealer.com http://www.mccrea.subaru.com blackwellford.com www.bobilya.com https://www.century1chevy.com hammondautoplex.com www.harbinfordscottsboro.net http://www.lancaster.subaru.com loufusz.subaru.com www.mastro.subaru.com www.muller.subaru.com reinekefamilydealerships.com]
 
   # webs_obj = UrlVerifier::Webs.new(WebsCriteria.all_scrub_web_criteria)
   # args = {
@@ -56,13 +37,6 @@ def run_verify_urls
   #   cut_off: 10.days.ago
   # }
 
-  binding.pry
-  # ver_obj = UrlVerifier::RunCurler.new
-  binding.pry
-
-  # curler_hashes = ver_obj.verify_urls(urls)
-  binding.pry
-
-  # ver_obj = UrlVerifier::Verify.new(args)
-  # verified_urls = ver_obj.verify_urls(urls)
+  ver_obj = UrlVerifier::RunCurler.new
+  curler_hashes = ver_obj.verify_urls(urls)
 end

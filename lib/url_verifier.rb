@@ -9,6 +9,10 @@ require 'pry'
 require 'utf8_sanitizer'
 require 'crm_formatter'
 
+require 'timeout'
+require 'net/ping'
+require 'curb'
+
 
 module UrlVerifier
   # Your code goes here...

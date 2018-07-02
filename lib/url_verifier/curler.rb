@@ -9,12 +9,10 @@ module UrlVerifier
   class Curler
 
     def initialize
-      # @web_formatter = CRMFormatter::Web.new
+      @web_formatter = CrmFormatter::Web.new
     end
 
-
     def start_curl(url, timeout)
-
       curl_result = { verified_url: nil, response_code: nil, curl_err: nil }
       if url.present?
         result = nil
@@ -34,8 +32,9 @@ module UrlVerifier
               curl_result[:response_code] = result&.response_code.to_s
               web_hsh = @web_formatter.format_url(result&.last_effective_url)
 
-              if web_hsh[:formatted_url].present?
-                curl_result[:verified_url] = @web_formatter.convert_to_scheme_host(web_hsh[:formatted_url])
+              if web_hsh[:url_f].present?
+                curl_result[:verified_url] = web_hsh[:url_f]
+                # curl_result[:verified_url] = @web_formatter.convert_to_scheme_host(web_hsh[:url_f])
               end
             end
 

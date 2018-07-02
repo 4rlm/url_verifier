@@ -17,26 +17,18 @@ task :console do
   ARGV.clear
 
   verified_urls = run_verify_urls
+  binding.pry
 
   IRB.start
 end
 
 
 def run_verify_urls
+  # urls = %w[https://www.century1chevy.com www.sofake.sofake http://www.mccrea.subaru.com blackwellford.com minooka.subaru.com texarkana.mercedesdealer.com www.bobilya.com hammondautoplex.com www.harbinfordscottsboro.net http://www.lancaster.subaru.com loufusz.subaru.com www.mastro.subaru.com www.muller.subaru.com reinekefamilydealerships.com]
 
-  urls = %w[minooka.subaru.com texarkana.mercedesdealer.com http://www.mccrea.subaru.com blackwellford.com www.bobilya.com https://www.century1chevy.com hammondautoplex.com www.harbinfordscottsboro.net http://www.lancaster.subaru.com loufusz.subaru.com www.mastro.subaru.com www.muller.subaru.com reinekefamilydealerships.com]
+  urls = %w[blackwellford.com/staff www.mccrea.subaru.com/inventory www.sofake.sofake https://www.century1chevy.com https://www.mccreasubaru.com]
 
-  # webs_obj = UrlVerifier::Webs.new(WebsCriteria.all_scrub_web_criteria)
-  # args = {
-  #   dj_on: false,
-  #   dj_count_limit: 0,
-  #   dj_workers: 3,
-  #   obj_in_grp: 10,
-  #   dj_refresh_interval: 10,
-  #   db_timeout_limit: 120,
-  #   cut_off: 10.days.ago
-  # }
-
-  ver_obj = UrlVerifier::RunCurler.new
+  args = { timeout_limit: 60 }
+  ver_obj = UrlVerifier::RunCurler.new(args)
   curler_hashes = ver_obj.verify_urls(urls)
 end

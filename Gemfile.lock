@@ -4,7 +4,7 @@ PATH
     url_verifier (0.0.1.pre.rc.03)
       activesupport (~> 5.2)
       crm_formatter (~> 2.62)
-      curb (~> 0.9.3)
+      curb (~> 0.9.6)
       net-ping (~> 1.7, >= 1.7.8)
       utf8_sanitizer (~> 2.16)
 

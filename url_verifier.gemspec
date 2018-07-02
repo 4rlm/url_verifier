@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'crm_formatter', '~> 2.62'
 
   spec.add_dependency 'net-ping', '~> 1.7', '>= 1.7.8'
-  spec.add_dependency 'curb', '~> 0.9.3'
+  spec.add_dependency 'curb', '~> 0.9.6'
 
   # spec.add_dependency "activesupport-inflector", ['~> 0.1.0']
   spec.add_development_dependency 'bundler', '~> 1.16', '>= 1.16.2'

@@ -1,4 +1,6 @@
 
+## INACTIVE - CONSIDER LATER FOR ADVANCED OPTION ###
+
 module UrlVerifier
   class Query
     # include Curler

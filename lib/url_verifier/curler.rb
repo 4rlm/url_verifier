@@ -4,12 +4,12 @@
 # gem 'net-ping', '~> 1.7', '>= 1.7.8'
 # gem 'curb', '~> 0.9.3'
 
-
 module UrlVerifier
   class Curler
 
     def initialize
       @web_formatter = CrmFormatter::Web.new
+      @ran_again = false
     end
 
     def start_curl(url, timeout)
@@ -20,7 +20,8 @@ module UrlVerifier
         begin # Curl Exception Handling
           begin # Timeout Exception Handling
             Timeout.timeout(timeout) do
-              puts "\n\n=== WAITING FOR CURL RESPONSE ==="
+              pre_curl_msg(url, timeout)
+
               result = Curl::Easy.perform(url) do |curl|
                 curl.follow_location = true
                 curl.useragent = "curb"
@@ -32,17 +33,16 @@ module UrlVerifier
               curl_result[:response_code] = result&.response_code.to_s
               web_hsh = @web_formatter.format_url(result&.last_effective_url)
 
-              if web_hsh[:url_f].present?
-                curl_result[:verified_url] = web_hsh[:url_f]
-                # curl_result[:verified_url] = @web_formatter.convert_to_scheme_host(web_hsh[:url_f])
-              end
+              url_f = web_hsh[:url_f]
+              curl_result[:verified_url] = url_f if url_f.present?
             end
 
           rescue Timeout::Error # Timeout Exception Handling
             curl_result[:curl_err] = "Error: Timeout"
           end
 
-        rescue LoadError => e  # Curl Exception Handling
+        # rescue LoadError => e  # Curl Exception Handling
+        rescue StandardError => e
           curl_err = error_parser("Error: #{$!.message}")
           # CheckInt.new.check_int if curl_err.include?('TCP')
           curl_result[:curl_err] = curl_err
@@ -51,10 +51,32 @@ module UrlVerifier
         curl_result[:curl_err] = 'URL Nil'
       end
 
-      print_result(curl_result)
+      curl_result = run_again(curl_result, url, timeout)
       curl_result
     end
 
+    def run_again(curl_result, url, timeout)
+      if curl_result[:curl_err].present?
+        if @ran_again == false
+          @ran_again = true
+          url = https_to_http(url)
+          curl_result = start_curl(url, timeout)
+        else
+          @ran_again = false
+        end
+      else
+        @ran_again = false
+      end
+      curl_result
+    end
+
+    def https_to_http(url)
+      url = url.gsub('https://', 'http://')
+    end
+
+    def pre_curl_msg(url, timeout)
+      puts "\n\n#{'='*40}\nVERIFYING: #{url}\nMax Wait Set: #{timeout} Seconds\n\n"
+    end
 
     def error_parser(curl_err)
       if curl_err.include?("Couldn't connect to server")
@@ -75,14 +97,6 @@ module UrlVerifier
 
       curl_err
     end
-
-
-    def print_result(curl_result)
-      "\n\n\n#{'='*30}"
-      puts curl_result
-      "#{'='*30}\n\n\n"
-    end
-
 
   end
 end

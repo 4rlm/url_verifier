@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Adam Booth"]
   spec.email         = ["4rlm@protonmail.ch"]
 
-  spec.summary       = %q{Follows URL redirects to retrieve final address and status}
-  spec.description   = %q{Follows URL redirects to retrieve final address and status.}
+  spec.summary       = %q{Format, Verify & Follow URL redirects with detailed reports. (url: 'blackwellford.com/staff', verified_url: 'https://www.blackwellford.com', response_code:'200', url_redirected: true)  }
+  spec.description   = %q{Format, Verify & Follow URL redirects with detailed reports. (Ex => url: 'blackwellford.com/staff', verified_url: 'https://www.blackwellford.com', response_code:'200', url_redirected: true, url_sts: 'Valid', url_path: '/staff'). Following url redirects can sometimes take a few minutes and often creates various exceptions.  UrlVerifier is built with exceptional error handling, reformatting, and optional time limits you can set; default is set to 60 sec limit, but typically only takes 5-10 seconds per url.  UrlVerifier has been developed and improved upon for several years in an enterprise level app and is now available as an open source gem.  It is perfect for high-volume, yet smooth, uninterrupted url formatting and verification.}
   spec.homepage      = 'https://github.com/4rlm/url_verifier'
   spec.license       = "MIT"
 

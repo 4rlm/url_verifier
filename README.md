@@ -1,6 +1,5 @@
 # UrlVerifier
 
-[![Build Status](https://travis-ci.org/4rlm/url_verifier.svg?branch=master)](https://travis-ci.org/4rlm/url_verifier)
 [![Gem Version](https://badge.fury.io/rb/url_verifier.svg)](https://badge.fury.io/rb/url_verifier)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 

@@ -45,7 +45,7 @@ Or install it yourself as:
 
 ```
 verifier = UrlVerifier::RunCurler.new
-verified_url_hashes = verifier.verify_url('example.com')
+verified_url_hash = verifier.verify_url('example.com')
 ```
 
 #### 2. Verify Array of URL Strings:

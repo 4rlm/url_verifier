@@ -21,7 +21,6 @@ module UrlVerifier
           begin # Timeout Exception Handling
             pre_curl_msg(url, timeout)
             Timeout.timeout(timeout) do
-
               result = Curl::Easy.perform(url) do |curl|
                 curl.follow_location = true
                 curl.useragent = "curb"
@@ -75,7 +74,9 @@ module UrlVerifier
     end
 
     def pre_curl_msg(url, timeout)
-      puts "\n\n#{'='*40}\nVERIFYING: #{url}\nMax Wait Set: #{timeout} Seconds\n\n"
+      msg = "\n\n#{'='*40}\nVERIFYING: #{url}\nMax Wait Set: #{timeout} Seconds\n\n"
+      puts msg
+      msg
     end
 
     def error_parser(curl_err)
@@ -94,7 +95,6 @@ module UrlVerifier
       else
         curl_err = "Error: Undefined"
       end
-
       curl_err
     end
 

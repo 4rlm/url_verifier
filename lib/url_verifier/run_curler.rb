@@ -1,24 +1,21 @@
 
 module UrlVerifier
   class RunCurler
+    attr_accessor :time_now
 
     def initialize(args={})
       @timeout_limit = args.fetch(:timeout_limit, 60)
       @web_formatter = CrmFormatter::Web.new
       @curler = UrlVerifier::Curler.new
-
-      # @dj_on = false
-      # @dj_count_limit = 0
-      # @dj_workers = 3
-      # @obj_in_grp = 10
-      # @dj_refresh_interval = 10
-      # @cut_off = 10.days.ago
-      # @current_process = "VerUrl"
-      # @url_hash = {}
+      @time_now = nil
     end
 
     def verify_urls(urls=[])
       url_hashes = urls.map { |url| verify_url(url) }
+    end
+
+    def check_time
+      @time_now = Time.now unless @time_now == 'rspec_time'
     end
 
     def verify_url(url)
@@ -42,7 +39,7 @@ module UrlVerifier
         url_redirected: false,
         response_code: nil,
         url_sts: nil,
-        url_date: Time.now,
+        url_date: @time_now,
         wx_date: nil,
         timeout: 0
       }
@@ -50,7 +47,7 @@ module UrlVerifier
     end
 
     def evaluate_formatted_url(url_hash)
-      url_hash = url_hash.merge({url_sts: 'Invalid', wx_date: Time.now })
+      url_hash = url_hash.merge({url_sts: 'Invalid', wx_date: @time_now })
     end
 
     def check_for_redirect(url_hash)

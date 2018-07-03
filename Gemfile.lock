@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    url_verifier (2.10)
+    url_verifier (2.11)
       activesupport (~> 5.2)
       crm_formatter (~> 2.62)
       curb (~> 0.9.6)

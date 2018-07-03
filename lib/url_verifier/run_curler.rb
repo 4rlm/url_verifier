@@ -19,6 +19,7 @@ module UrlVerifier
     end
 
     def verify_url(url)
+      check_time
       url_hash = @web_formatter.format_url(url)
       url_hash = merge_url_hash(url_hash)
 

@@ -1,9 +1,7 @@
-RSpec.describe UrlVerifier do
-  it "has a version number" do
-    expect(UrlVerifier::VERSION).not_to be nil
-  end
+require 'url_verifier'
+require 'spec_helper'
+# require 'crm_formatter'
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+RSpec.describe UrlVerifier do
+  # let(:scrub_obj) { ScrubDb }
 end

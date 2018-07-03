@@ -17,7 +17,7 @@ task :console do
   ARGV.clear
 
   verified_urls = run_verify_urls
-  # binding.pry
+  binding.pry
 
   IRB.start
 end

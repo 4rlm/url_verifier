@@ -19,8 +19,8 @@ module UrlVerifier
 
         begin # Curl Exception Handling
           begin # Timeout Exception Handling
+            pre_curl_msg(url, timeout)
             Timeout.timeout(timeout) do
-              pre_curl_msg(url, timeout)
 
               result = Curl::Easy.perform(url) do |curl|
                 curl.follow_location = true

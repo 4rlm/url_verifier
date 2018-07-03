@@ -7,7 +7,7 @@
 /spec/reports/
 /tmp/
 
-
+url_verifier-*.gem
 .DS_Store
 .idea/
 .xlsx

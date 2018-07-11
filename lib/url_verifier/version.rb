@@ -1,3 +1,3 @@
 module UrlVerifier
-  VERSION = "2.12"
+  VERSION = "3.1"
 end
